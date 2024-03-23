@@ -40,7 +40,7 @@ def list_rooms(accT):
         response = requests.get(url, headers = headers)
         response.raise_for_status()
             
-        rooms = response.json()['items'][:6] #get the first 6 rooms
+        rooms = response.json()['items'][:5] #get the first 5 rooms
         for room in rooms: 
                 print("\nRoom ID : " + room["id"])
                 print("\nRoom Title : " + room["title"])
@@ -68,7 +68,7 @@ def send_message(accT):
         response = requests.get(url, headers=headers)
         response.raise_for_status()
 
-        rooms = response.json()['items']  # Get all rooms
+        rooms = response.json()['items'][:5] #get the first 5 rooms
         for i, room in enumerate(rooms, start=1):
             print(f"{i}. {room['title']}")
 
